@@ -94,7 +94,7 @@ def solve(filename):
 
     #print('Done')
 
-    return sim_score,rel_score,feature_criticality_score
+    return sim_score,rel_score,feature_criticality_score,data.columns
 
 
 #solve('wiscon.csv')

@@ -45,13 +45,14 @@ class Table(QWidget):
         #print(self.data)
         self.tableWidget.setColumnCount(4)  
   
-        self.tableWidget.setItem(0,0, QTableWidgetItem("Sl"))
+        self.tableWidget.setItem(0,0, QTableWidgetItem("Feature"))
         self.tableWidget.setItem(0,1, QTableWidgetItem("Sim"))
         self.tableWidget.setItem(0,2, QTableWidgetItem("Rel"))
         self.tableWidget.setItem(0,3, QTableWidgetItem("Fe"))
+
         
         for i in range(1,n+1):
-            self.tableWidget.setItem(i,0, QTableWidgetItem(i))
+            self.tableWidget.setItem(i,0, QTableWidgetItem(str(self.data[3][i-1])))
             self.tableWidget.setItem(i,1, QTableWidgetItem(str(round(self.data[0][i-1],4))))
             self.tableWidget.setItem(i,2, QTableWidgetItem(str(round(self.data[1][i-1],4))))
             self.tableWidget.setItem(i,3, QTableWidgetItem(str(round(self.data[2][i-1],4))))
@@ -100,8 +101,8 @@ class Ui(QtWidgets.QMainWindow):
         
         filename=self.Entry.text()
         #print(filename)
-        sim,rel,fe=solve(filename)
-        data=[sim,rel,fe]
+        sim,rel,fe,cols=solve(filename)
+        data=[sim,rel,fe,cols]
 
         self.secondary_window=Table(data)
         self.secondary_window.show()
