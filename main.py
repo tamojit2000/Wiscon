@@ -100,9 +100,30 @@ class Ui(QtWidgets.QMainWindow):
     def calculate(self):
         
         filename=self.Entry.text()
+        feature_no=self.Feature_no.text()
+
+        if feature_no=='':
+            feature_no='1'
+        feature_no=int(feature_no)
+            
         #print(filename)
+        #print(feature_no)
+        
         sim,rel,fe,cols=solve(filename)
         data=[sim,rel,fe,cols]
+        
+        #print(data)
+        Ans1=model_custom(feature_no,filename,fe,GaussianNB())
+        Ans2=model_custom(feature_no,filename,fe,SVC())
+        Ans3=model_custom(feature_no,filename,fe,tree.DecisionTreeClassifier())
+        Ans4=model_custom(feature_no,filename,fe,RandomForestClassifier())
+
+        #print(Ans1,Ans2,Ans3,Ans4)
+        
+        self.ans_1.setText('GaussianNB\t:\t'+str(Ans1))
+        self.ans_2.setText('SVM\t\t:\t'+str(Ans1))
+        self.ans_3.setText('Decision Tree\t:\t'+str(Ans1))
+        self.ans_4.setText('Random Forest\t:\t'+str(Ans1))
 
         self.secondary_window=Table(data)
         self.secondary_window.show()
