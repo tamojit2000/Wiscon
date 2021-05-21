@@ -196,7 +196,7 @@ font: 75 10pt &quot;MS Sherif&quot;;</string>
      </rect>
     </property>
     <property name="text">
-     <string>ans1</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="ans_2">
@@ -209,7 +209,7 @@ font: 75 10pt &quot;MS Sherif&quot;;</string>
      </rect>
     </property>
     <property name="text">
-     <string>ans2</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="ans_3">
@@ -222,7 +222,7 @@ font: 75 10pt &quot;MS Sherif&quot;;</string>
      </rect>
     </property>
     <property name="text">
-     <string>ans3</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="ans_4">
@@ -235,7 +235,7 @@ font: 75 10pt &quot;MS Sherif&quot;;</string>
      </rect>
     </property>
     <property name="text">
-     <string>ans4</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLineEdit" name="Feature_no">
@@ -252,6 +252,9 @@ font: 75 10pt &quot;MS Sherif&quot;;</string>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Feature No</string>
     </property>
    </widget>
   </widget>

@@ -121,9 +121,9 @@ class Ui(QtWidgets.QMainWindow):
         #print(Ans1,Ans2,Ans3,Ans4)
         
         self.ans_1.setText('GaussianNB\t:\t'+str(Ans1))
-        self.ans_2.setText('SVM\t\t:\t'+str(Ans1))
-        self.ans_3.setText('Decision Tree\t:\t'+str(Ans1))
-        self.ans_4.setText('Random Forest\t:\t'+str(Ans1))
+        self.ans_2.setText('SVM\t\t:\t'+str(Ans2))
+        self.ans_3.setText('Decision Tree\t:\t'+str(Ans3))
+        self.ans_4.setText('Random Forest\t:\t'+str(Ans4))
 
         self.secondary_window=Table(data)
         self.secondary_window.show()
