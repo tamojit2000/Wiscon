@@ -86,6 +86,15 @@ class Ui(QtWidgets.QMainWindow):
         self.Calculate_btn.clicked.connect(self.calculate)
 
         self.secondary_window=None
+
+        self.ans_1.setText('')
+        self.ans_2.setText('')
+        self.ans_3.setText('')
+        self.ans_4.setText('')
+        self.ans_5.setText('')
+        self.ans_6.setText('')
+        self.ans_7.setText('')
+        self.ans_8.setText('')
         
         self.show()
 
@@ -113,17 +122,27 @@ class Ui(QtWidgets.QMainWindow):
         data=[sim,rel,fe,cols]
         
         #print(data)
-        Ans1=model_custom(feature_no,filename,fe,GaussianNB())
-        Ans2=model_custom(feature_no,filename,fe,SVC())
-        Ans3=model_custom(feature_no,filename,fe,tree.DecisionTreeClassifier())
-        Ans4=model_custom(feature_no,filename,fe,RandomForestClassifier())
+        Ans1=model_custom(feature_no,filename,fe,GaussianNB(),True)
+        Ans2=model_custom(feature_no,filename,fe,SVC(),True)
+        Ans3=model_custom(feature_no,filename,fe,KNN(),True)
+        Ans4=model_custom(feature_no,filename,fe,RandomForestClassifier(),True)
+
+        Ans5=model_custom(feature_no,filename,fe,GaussianNB(),False)
+        Ans6=model_custom(feature_no,filename,fe,SVC(),False)
+        Ans7=model_custom(feature_no,filename,fe,KNN(),False)
+        Ans8=model_custom(feature_no,filename,fe,RandomForestClassifier(),False)
 
         #print(Ans1,Ans2,Ans3,Ans4)
         
-        self.ans_1.setText('GaussianNB\t:\t'+str(Ans1))
-        self.ans_2.setText('SVM\t\t:\t'+str(Ans2))
-        self.ans_3.setText('Decision Tree\t:\t'+str(Ans3))
-        self.ans_4.setText('Random Forest\t:\t'+str(Ans4))
+        self.ans_1.setText('TOP\tGaussianNB\t:\t'+str(Ans1))
+        self.ans_2.setText('TOP\tSVM\t\t:\t'+str(Ans2))
+        self.ans_3.setText('TOP\tDecision Tree\t:\t'+str(Ans3))
+        self.ans_4.setText('TOP\tRandom Forest\t:\t'+str(Ans4))
+
+        self.ans_5.setText('BTM\tGaussianNB\t:\t'+str(Ans5))
+        self.ans_6.setText('BTM\tSVM\t\t:\t'+str(Ans6))
+        self.ans_7.setText('BTM\tDecision Tree\t:\t'+str(Ans7))
+        self.ans_8.setText('BTM\tRandom Forest\t:\t'+str(Ans8))
 
         self.secondary_window=Table(data)
         self.secondary_window.show()

@@ -8,6 +8,7 @@ from sklearn import tree
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.neighbors import KNeighborsClassifier as KNN
 
 import warnings
 warnings.filterwarnings("ignore")
@@ -98,16 +99,17 @@ def solve(filename):
 
 
 
-def model_custom(n,filename,fe,model):
+def model_custom(n,filename,fe,model,flag):
     #print('Inside')
     data=pd.read_csv(filename)
     tmp=[]
     #print(data)
 
     cols=data.columns
+    
     for i in range(len(cols)-1):
         tmp.append([fe[i],cols[i]])
-    tmp.sort(reverse=True)
+    tmp.sort(reverse=flag)
     #print(tmp)
     
     tmp=tmp[n:]
@@ -133,7 +135,7 @@ if __name__=='__main__':
     
     sim,rel,fe,col=solve(filename)
     
-    ans=model_custom(3,filename,fe,GaussianNB())
+    ans=model_custom(3,filename,fe,GaussianNB(),True)
 
     #print(sim)
     #print(rel)
